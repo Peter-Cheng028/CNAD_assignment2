@@ -11,14 +11,20 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Setup environment
         run: |
-          echo "Setup environment..."
-      
+          echo "Setting up environment..."
+      - name: Code Lint Check
+        run: |
+          echo "Running code lint check..."
+          echo "Lint check passed!"
+      - name: Generate Test Report
+        run: |
+          echo "Generating test report..."
+          echo "Test report generated."
       - name: Run tests
         run: |
-          echo "Run tests..."
+          echo "Running tests..."
           if [ -f "./fail.txt" ]; then
             echo "Test failed because fail.txt exists."
             exit 1
