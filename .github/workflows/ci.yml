@@ -1,0 +1,27 @@
+name: CI Workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup environment
+        run: |
+          echo "Setup environment..."
+      
+      - name: Run tests
+        run: |
+          echo "Run tests..."
+          if [ -f "./fail.txt" ]; then
+            echo "Test failed because fail.txt exists."
+            exit 1
+          else
+            echo "All tests passed."
+          fi
